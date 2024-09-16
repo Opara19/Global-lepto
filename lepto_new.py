@@ -289,6 +289,8 @@ if(selected_region=='Europe'):
             
             with cols2:
                 fig, ax = plt.subplots()
+                fig.patch.set_facecolor('black') 
+                ax.set_facecolor('black')
                 ax.plot(country_data['Year'], country_data['Cases'], marker='o', linestyle='-', color='aquamarine', label='Historical Cases')
                 ax.plot(forecast_df['Year'], forecast_df['LSTM Forecast'], marker='o', linestyle='--', color='orange', label='LSTM Forecast')
                 ax.plot(forecast_df['Year'], forecast_df['Linear Regression'], marker='o', linestyle='--', color='r', label='LR Forecast')
