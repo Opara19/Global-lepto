@@ -287,7 +287,7 @@ if(selected_region=='Europe'):
                 #st.write(f'LSTM Training MAE: {train_mae:.2f}')
                 st.write(f'LSTM Test MAE: {test_mae:.2f}')
             
-            with cols21:
+            with cols2:
                 fig, ax = plt.subplots()
                 ax.plot(country_data['Year'], country_data['Cases'], marker='o', linestyle='-', color='aquamarine', label='Historical Cases')
                 ax.plot(forecast_df['Year'], forecast_df['LSTM Forecast'], marker='o', linestyle='--', color='orange', label='LSTM Forecast')
