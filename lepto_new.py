@@ -102,9 +102,9 @@ if(selected_region=='Europe'):
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['Region'] == max_cases_country:
-            return [255, 0, 0, 140]  # Red color with transparency for highest case country
+            return [255, 255, 255, 140]  # Red color with transparency for highest case country
         else:
-            return [0, 0, 255, 140]  # Blue color with transparency for others
+            return [255, 0, 0, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
@@ -114,7 +114,7 @@ if(selected_region=='Europe'):
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=50000,  # Adjust the radius size as needed
+        get_radius=150000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
@@ -127,6 +127,7 @@ if(selected_region=='Europe'):
         zoom=1,
         pitch=50
     )
+    
     def lstm_model(trainX, trainY):
         model = Sequential()
         model.add(LSTM(50, return_sequences=True, input_shape=(trainX.shape[1], 1)))
@@ -134,10 +135,10 @@ if(selected_region=='Europe'):
         model.add(Dense(1))
         model.compile(optimizer='adam', loss='mean_squared_error')
         return model
-
+    map_style = pdk.map_styles.MAPBOX_SATELLITE
     # Render the map in the second column
     with col1:
-        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state, tooltip={"text": "{Region}\nCases: {Cases}"})
+        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state,map_style=map_style, tooltip={"text": "{Region}\nCases: {Cases}"})
         st.pydeck_chart(r)
 
 
@@ -375,9 +376,9 @@ elif(selected_region=='USA'):
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['Regions'] == max_cases_country:
-            return [255, 0, 0, 140]  # Red color with transparency for highest case country
+            return [255, 255, 255, 140]  # Red color with transparency for highest case country
         else:
-            return [0, 0, 255, 140]  # Blue color with transparency for others
+            return [255, 0, 0, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
@@ -387,7 +388,7 @@ elif(selected_region=='USA'):
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=50000,  # Adjust the radius size as needed
+        get_radius=150000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
@@ -400,10 +401,10 @@ elif(selected_region=='USA'):
         zoom=1,
         pitch=50
     )
-    
+    map_style = pdk.map_styles.MAPBOX_SATELLITE
     # Render the map in the second column
     with col1:
-        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state, tooltip={"text": "{Regions}\nCases: {Cases}"})
+        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state,map_style=map_style, tooltip={"text": "{Regions}\nCases: {Cases}"})
         st.pydeck_chart(r)
 
     import plotly.express as px
@@ -515,9 +516,9 @@ else:
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['State'] == max_cases_country:
-            return [255, 0, 0, 140]  # Red color with transparency for highest case country
+            return [255, 255, 255, 140]  # Red color with transparency for highest case country
         else:
-            return [0, 0, 255, 140]  # Blue color with transparency for others
+            return [255, 0, 0, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
@@ -527,7 +528,7 @@ else:
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=50000,  # Adjust the radius size as needed
+        get_radius=150000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
@@ -540,10 +541,10 @@ else:
         zoom=1,
         pitch=50
     )
-    
+    map_style = pdk.map_styles.MAPBOX_SATELLITE
     # Render the map in the second column
     with col1:
-        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state, tooltip={"text": "{State}\nCases: {Count_Notification}"})
+        r = pdk.Deck(layers=[scatter_layer], initial_view_state=view_state,map_style=map_style, tooltip={"text": "{State}\nCases: {Count_Notification}"})
         st.pydeck_chart(r)
 
     import plotly.express as px
