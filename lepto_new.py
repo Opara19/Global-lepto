@@ -102,9 +102,9 @@ if(selected_region=='Europe'):
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['Region'] == max_cases_country:
-            return [255, 255, 255, 140]  # Red color with transparency for highest case country
+            return [255, 0, 0, 140]  # Red color with transparency for highest case country
         else:
-            return [255, 0, 0, 140]  # Blue color with transparency for others
+            return [255, 255, 255, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
@@ -376,9 +376,9 @@ elif(selected_region=='USA'):
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['Regions'] == max_cases_country:
-            return [255, 255, 255, 140]  # Red color with transparency for highest case country
+            return [255, 0, 0, 140]  # Red color with transparency for highest case country
         else:
-            return [255, 0, 0, 140]  # Blue color with transparency for others
+            return [255, 255, 255, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
@@ -516,9 +516,9 @@ else:
     # Define a function to assign red color to the country with the highest cases
     def get_fill_color(row):
         if row['State'] == max_cases_country:
-            return [255, 255, 255, 140]  # Red color with transparency for highest case country
+            return [255, 0, 0, 140]  # Red color with transparency for highest case country
         else:
-            return [255, 0, 0, 140]  # Blue color with transparency for others
+            return [255, 255, 255, 140]  # Blue color with transparency for others
 
     # Apply the color function
     year_data['color'] = year_data.apply(get_fill_color, axis=1)
