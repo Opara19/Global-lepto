@@ -114,7 +114,7 @@ if(selected_region=='Europe'):
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=150000,  # Adjust the radius size as needed
+        get_radius=60000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
@@ -388,7 +388,7 @@ elif(selected_region=='USA'):
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=150000,  # Adjust the radius size as needed
+        get_radius=60000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
@@ -528,7 +528,7 @@ else:
         'ScatterplotLayer',
         data=year_data,
         get_position=['LONG', 'LAT'],
-        get_radius=150000,  # Adjust the radius size as needed
+        get_radius=60000,  # Adjust the radius size as needed
         get_fill_color='color',  # Use the color column for the fill color
         pickable=True,
         auto_highlight=True
