@@ -12,12 +12,14 @@ from sklearn.metrics import mean_squared_error
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from sklearn.preprocessing import MinMaxScaler
+import altair as alt
 # Page config
 st.set_page_config(
     page_title="Global Leptospirosis Cases",
     layout='wide',
     initial_sidebar_state='expanded'
 )
+alt.themes.enable('dark')
 df = pd.read_csv('leptospirosis_cases_latilong.csv')
 
 # Ensure the year columns are strings
